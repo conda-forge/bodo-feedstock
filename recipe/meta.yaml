@@ -78,7 +78,7 @@ requirements:
     - pyarrow =19.0.0
     - fsspec >=2021.09
     - numba 0.61.2
-    - mpich 4.1.*=h* # [not win]
+    - mpich 4.1.*=h*  # [not win]
     - requests
     - openssl     # [win]
     - zstd <=1.5.6
