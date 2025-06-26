@@ -9,4 +9,5 @@ conda_build:
 conda_forge_output_validation: true
 
 provider:
+  osx_64: azure
   osx_arm64: azure
