@@ -11,3 +11,4 @@ $PYTHON -m pip install \
     --config-settings=build.verbose=true \
     --config-settings=logging.level="DEBUG" \
     --config-settings=cmake.args="${CMAKE_ARGS}"
+    .
