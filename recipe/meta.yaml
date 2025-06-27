@@ -1,5 +1,5 @@
 {% set name = "bodo" %}
-{% set version = "2025.5" %}
+{% set version = "2025.6" %}
 
 package:
   name: {{ name }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://github.com/bodo-ai/Bodo/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 879370fd33c7c2f4f3255076eabbc875f43bde6d4a189847b0fbc011821b2899
+  sha256: 948a72b6a96c5640ea440a2613ffceacada281bae6b0fe7577d046c9a7c17491
   patches:
     - patches/0001-fix-boost-cmake.patch
 
 build:
-  skip: True  # [py<310]
-  number: 1
+  skip: true  # [py<310]
+  number: 0
   rpaths:
     - lib
     - {{ PREFIX }}/lib
@@ -30,7 +30,7 @@ requirements:
     - ninja
     - cross-python_{{ target_platform }}    # [build_platform != target_platform]
     - python                                # [build_platform != target_platform]
-    - cython ~=3.0                          # [build_platform != target_platform]
+    - cython >=3.0                          # [build_platform != target_platform]
     - numpy                                 # [build_platform != target_platform]
 
   host:
@@ -39,7 +39,7 @@ requirements:
 
     # Build Deps
     - setuptools >=64
-    - cython ~=3.0
+    - cython >=3.0
     - setuptools_scm >=8
     - scikit-build-core
     - mpi4py ~=4.0
@@ -68,19 +68,19 @@ requirements:
     - mpich 4.1.*=h*        # [not win]
     - impi-devel            # [win64]
     - requests
-    - cloudpickle >=3.0,<4.0
+    - cloudpickle >=3.0
 
   run:
     - python
     - {{ pin_compatible('numpy') }}
-    - pandas >=2.2,<2.3
+    - pandas >=2.2
     - pyarrow-core =19.0.0
     - pyarrow =19.0.0
     - fsspec >=2021.09
     - numba 0.61.2
     - mpich 4.1.*=h*        # [not win]
     - requests
-    - openssl     # [win]
+    - openssl               # [win]
     - zstd <=1.5.6
     - cloudpickle >=3.0,<4.0
     - psutil
@@ -89,10 +89,9 @@ requirements:
   # but will restrict them if they are present in the conda env.
   run_constrained:
     - numpy >=1.24
-    - scikit-learn =1.4.*
     - s3fs >=2022.1.0
     - adlfs >=2022.1.0
-    - pyiceberg >=0.9,<0.10
+    - pyiceberg >=0.9
     - boto3 *
     - mypy-boto3-glue *
 
