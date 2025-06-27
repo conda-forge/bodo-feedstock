@@ -1,5 +1,5 @@
 {% set name = "bodo" %}
-{% set version = "2025.6" %}
+{% set version = "2025.7" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/bodo-ai/Bodo/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 948a72b6a96c5640ea440a2613ffceacada281bae6b0fe7577d046c9a7c17491
+  sha256: e705cde3079e31cbd86d2066d4b4d8aedb45e747f2d83b9724c9771e12529926
   patches:
     - patches/0001-fix-boost-cmake.patch
 
