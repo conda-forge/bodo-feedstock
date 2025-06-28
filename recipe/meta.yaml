@@ -8,8 +8,6 @@ package:
 source:
   url: https://github.com/bodo-ai/Bodo/archive/refs/tags/{{ version }}.tar.gz
   sha256: 5f2e8f1d92d84c9ac9ca56348e29a4996b8c42b347f88334fbda4ab3a98eabeb
-  patches:
-    - patches/0001-fix-boost-cmake.patch
 
 build:
   skip: true  # [py<310]
