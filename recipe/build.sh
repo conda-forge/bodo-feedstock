@@ -15,6 +15,8 @@ fi
 
 echo "PYTHON executable: $(which python)"
 $PYTHON -V
+$PYTHON -c "import sys; print(sys.path)"
+echo $PYTHONPATH
 $PYTHON -c "import numpy; print('NumPy version:', numpy.__version__)"
 
 $PYTHON -m pip install \
