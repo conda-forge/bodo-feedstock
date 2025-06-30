@@ -10,5 +10,5 @@ $PYTHON -m pip install \
     --no-deps --no-build-isolation -vv \
     --config-settings=build.verbose=true \
     --config-settings=logging.level="DEBUG" \
-    --config-settings=cmake.args="${CMAKE_ARGS}"
+    --config-settings=cmake.args="${CMAKE_ARGS}" \
     .
