@@ -16,7 +16,9 @@ fi
 echo "PYTHON executable: $(which python)"
 $PYTHON -V
 $PYTHON -c "import sys; print(sys.path)"
-echo $PYTHONPATH
+find "$BUILD_PREFIX" -type d -name "venv" -print -exec ls -al {} \;
+unset PYTHONPATH
+rm -rf "$BUILD_PREFIX/venv"
 $PYTHON -c "import numpy; print('NumPy version:', numpy.__version__)"
 
 $PYTHON -m pip install \
