@@ -30,6 +30,7 @@ requirements:
     - python                                # [build_platform != target_platform]
     - cython >=3.0                          # [build_platform != target_platform]
     - numpy                                 # [build_platform != target_platform]
+    - scikit-build-core                     # [build_platform != target_platform]
 
   host:
     - python
