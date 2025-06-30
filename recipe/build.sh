@@ -6,17 +6,16 @@ export CONDA_PREFIX_OLD=$CONDA_PREFIX
 export CONDA_PREFIX=$PREFIX
 export CMAKE_GENERATOR='Ninja'
 
-unset PYTHONPATH
-rm -rf "$BUILD_PREFIX/venv"
+ls $SP_DIR/numpy/_core
 
-$PYTHON -m pip list
-
-echo "Current directory: $(pwd)"
-ls -al
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != "0" ]]; then
+    export NUMPY_INCLUDE_DIR="$SP_DIR/numpy/_core/include"
+    export PIP_EXTRA_CONFIG="--config-settings=cmake.define.Python_NumPy_INCLUDE_DIR="${NUMPY_INCLUDE_DIR}""
+fi
 
 $PYTHON -m pip install \
     --no-deps --no-build-isolation -vv \
     --config-settings=build.verbose=true \
     --config-settings=logging.level="DEBUG" \
     --config-settings=cmake.args="${CMAKE_ARGS}" \
-    .
+    $PIP_EXTRA_CONFIG .
