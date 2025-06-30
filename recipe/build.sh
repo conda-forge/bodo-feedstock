@@ -6,20 +6,13 @@ export CONDA_PREFIX_OLD=$CONDA_PREFIX
 export CONDA_PREFIX=$PREFIX
 export CMAKE_GENERATOR='Ninja'
 
-if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != "0" ]]; then
-    echo "CROSS COMPILING BODO!"
-    export SKBUILD_LINK_LIBPYTHON="OFF"
-    export PIP_NO_BUILD_ISOLATION=1
-    export PIP_NO_INDEX=1
-fi
-
-echo "PYTHON executable: $(which python)"
-$PYTHON -V
-$PYTHON -c "import sys; print(sys.path)"
-find "$BUILD_PREFIX" -type d -name "venv" -print -exec ls -al {} \;
 unset PYTHONPATH
 rm -rf "$BUILD_PREFIX/venv"
-$PYTHON -c "import numpy; print('NumPy version:', numpy.__version__)"
+
+$PYTHON -m pip list
+
+echo "Current directory: $(pwd)"
+ls -al
 
 $PYTHON -m pip install \
     --no-deps --no-build-isolation -vv \
