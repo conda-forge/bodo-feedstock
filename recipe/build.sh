@@ -9,8 +9,9 @@ export CMAKE_GENERATOR='Ninja'
 ls $SP_DIR/numpy/_core
 
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != "0" ]]; then
-    export NUMPY_INCLUDE_DIR="$SP_DIR/numpy/_core/include"
-    export PIP_EXTRA_CONFIG="--config-settings=cmake.define.Python_NumPy_INCLUDE_DIR="${NUMPY_INCLUDE_DIR}""
+    # export NUMPY_INCLUDE_DIR="$SP_DIR/numpy/_core/include"
+    # export PIP_EXTRA_CONFIG="--config-settings=cmake.define.Python_NumPy_INCLUDE_DIR="${NUMPY_INCLUDE_DIR}""
+    $PYTHON -m pip install "numpy>=1.26"
 fi
 
 $PYTHON -m pip install \
