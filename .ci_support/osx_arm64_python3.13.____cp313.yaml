@@ -2,6 +2,8 @@ MACOSX_DEPLOYMENT_TARGET:
 - '11.0'
 MACOSX_SDK_VERSION:
 - '11.0'
+aws_sdk_cpp:
+- 1.11.510
 c_compiler:
 - clang
 c_compiler_version:
@@ -18,10 +20,16 @@ cxx_compiler:
 - clangxx
 cxx_compiler_version:
 - '18'
+hdf5:
+- 1.14.3
+libarrow:
+- '19.0'
+libboost_headers:
+- '1.86'
 macos_machine:
 - arm64-apple-darwin20.0.0
 numpy:
-- '2'
+- '2.2'
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -33,3 +41,11 @@ target_platform:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
+zstd:
+- '1.5'
+build_platform:
+- osx-64
+
+CONDA_BUILD_SYSROOT:
+- /Users/bodouser/dev/bodo-feedstock/SDKs/MacOSX11.0.sdk
+

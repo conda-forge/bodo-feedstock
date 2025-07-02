@@ -1,3 +1,5 @@
+aws_sdk_cpp:
+- 1.11.510
 c_compiler:
 - vs2022
 c_stdlib:
@@ -8,10 +10,16 @@ channel_targets:
 - conda-forge main
 cxx_compiler:
 - vs2022
+hdf5:
+- 1.14.3
 impi_devel:
 - '2021.14'
+libarrow:
+- '19.0'
+libboost_devel:
+- '1.86'
 numpy:
-- '2'
+- '2.2'
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -20,3 +28,5 @@ python:
 - 3.13.* *_cp313
 target_platform:
 - win-64
+zstd:
+- '1.5'

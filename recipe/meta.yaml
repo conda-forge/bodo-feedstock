@@ -8,6 +8,8 @@ package:
 source:
   url: https://github.com/bodo-ai/Bodo/archive/refs/tags/{{ version }}.tar.gz
   sha256: 5f2e8f1d92d84c9ac9ca56348e29a4996b8c42b347f88334fbda4ab3a98eabeb
+  patches:
+    - patch_bodo.patch
 
 build:
   skip: true  # [py<310]
@@ -30,7 +32,9 @@ requirements:
     - python                                # [build_platform != target_platform]
     - cython >=3.0                          # [build_platform != target_platform]
     - numpy                                 # [build_platform != target_platform]
-    - scikit-build-core                     # [build_platform != target_platform]
+    - pyarrow-core                          # [build_platform != target_platform]
+    - mpi4py >=4.0,<4.1                     # [build_platform != target_platform]
+    - mpich <4.2                            # [build_platform != target_platform]
 
   host:
     - python
@@ -41,58 +45,51 @@ requirements:
     - cython >=3.0
     - setuptools_scm >=8
     - scikit-build-core
-    - mpi4py ~=4.0
+    - mpi4py >=4.0,<4.1
 
     # Arrow Deps
-    - libarrow =19.0.0
-    - libarrow-dataset =19.0.0
-    - libparquet =19.0.0
-    - pyarrow-core =19.0.0
+    - libarrow
+    - libarrow-dataset
+    - libparquet
+    - pyarrow-core
 
     # C++ Deps
-    - libboost-headers =1.85  # [not win]
-    - libboost-devel =1.85    # [win]
-    - aws-sdk-cpp <=1.11.485
-    - zstd <=1.5.6
-    - hdf5 >=1.14.3,<1.14.4.0a0=mpi_mpich_*  # [not win]
-    - hdf5 >=1.14.3,<1.14.4.0a0=*mpi_impi_*  # [win]
+    - libboost-headers  # [not win]
+    - libboost-devel    # [win]
+    - aws-sdk-cpp
+    - zstd
+    - hdf5 * mpi_mpich_*  # [not win]
+    - hdf5 * *mpi_impi_*  # [win]
+    - h5py
+
+    - mpich <4.2            # [not win]
 
     # Python Deps
     - numba =0.61.2
-    # Compatible with Numba requirements
-    - numpy >=1.24
-    - pandas >=2.2,<2.3
-    - fsspec >=2021.09
-    - h5py
-    - mpich 4.1.*=h*        # [not win]
+    - numpy
     - impi-devel            # [win64]
-    - requests
-    - cloudpickle >=3.0
 
   run:
     - python
-    - {{ pin_compatible('numpy') }}
+    - numpy >=1.24
     - pandas >=2.2
-    - pyarrow-core =19.0.0
-    - pyarrow =19.0.0
+    - pyarrow-core
+    - pyarrow
     - fsspec >=2021.09
-    - numba 0.61.2
-    - mpich 4.1.*=h*        # [not win]
+    - numba =0.61.2
+    - mpich <4.2            # [not win]
     - requests
     - openssl               # [win]
-    - zstd <=1.5.6
-    - cloudpickle >=3.0,<4.0
+    - zstd
+    - cloudpickle >=3.0
     - psutil
 
   # run_constrained means these packages are not required deps
   # but will restrict them if they are present in the conda env.
   run_constrained:
-    - numpy >=1.24
     - s3fs >=2022.1.0
     - adlfs >=2022.1.0
     - pyiceberg >=0.9
-    - boto3 *
-    - mypy-boto3-glue *
 
 test:
   imports:
