@@ -2,6 +2,8 @@ MACOSX_DEPLOYMENT_TARGET:
 - '10.15'
 MACOSX_SDK_VERSION:
 - '10.15'
+aws_sdk_cpp:
+- 1.11.510
 c_compiler:
 - clang
 c_compiler_version:
@@ -18,10 +20,14 @@ cxx_compiler:
 - clangxx
 cxx_compiler_version:
 - '18'
+libarrow:
+- '19.0'
+libboost_headers:
+- '1.86'
 macos_machine:
 - x86_64-apple-darwin13.4.0
 numpy:
-- '2'
+- '2.2'
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -33,3 +39,5 @@ target_platform:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
+zstd:
+- '1.5'
