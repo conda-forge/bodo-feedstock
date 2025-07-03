@@ -20,8 +20,6 @@ cxx_compiler:
 - clangxx
 cxx_compiler_version:
 - '18'
-hdf5:
-- 1.14.3
 libarrow:
 - '19.0'
 libboost_headers:
