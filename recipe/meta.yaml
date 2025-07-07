@@ -1,5 +1,5 @@
 {% set name = "bodo" %}
-{% set version = "2025.7.2" %}
+{% set version = "2025.7.3" %}
 
 package:
   name: {{ name }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://github.com/bodo-ai/Bodo/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 07ae80e7cd64ad3ec6b94ee35247d20081636097a96f577385c1ac3a9dae2bf0
+  sha256: 6ed2720fed507f30530502d957cdce4d4a84433b09c18207b90427b64ca0d193
   patches:
     - patches/0001-fix-cross-compile.patch
 
 build:
-  skip: true  # [py<310]
+  skip: true  # [py<39]
   number: 0
   rpaths:
     - lib
@@ -31,7 +31,8 @@ requirements:
     - cross-python_{{ target_platform }}    # [build_platform != target_platform]
     - python                                # [build_platform != target_platform]
     - cython >=3.0                          # [build_platform != target_platform]
-    - numpy                                 # [build_platform != target_platform]
+    # Restricting numpy in build for compatibility with numba requirements.
+    - numpy <2.3                            # [build_platform != target_platform]
     - pyarrow-core                          # [build_platform != target_platform]
 
   host:
@@ -64,7 +65,7 @@ requirements:
     - mpich <4.2            # [not win]
 
     # Python Deps
-    - numba =0.61.2
+    - numba >=0.60
     - numpy
     - impi-devel            # [win64]
 
@@ -75,7 +76,7 @@ requirements:
     - pyarrow-core
     - pyarrow
     - fsspec >=2021.09
-    - numba =0.61.2
+    - numba >=0.60
     - mpich <4.2            # [not win]
     - requests
     - openssl               # [win]
