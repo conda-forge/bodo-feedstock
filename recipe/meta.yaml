@@ -1,5 +1,5 @@
 {% set name = "bodo" %}
-{% set version = "2025.7.3" %}
+{% set version = "2025.7.4" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/bodo-ai/Bodo/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 6ed2720fed507f30530502d957cdce4d4a84433b09c18207b90427b64ca0d193
+  sha256: bdcd08425f69f7245fbc1d7eba9c4f34ff0c468596d20093f4723e2bfb10c9aa
   patches:
     - patches/0001-fix-cross-compile.patch
 
