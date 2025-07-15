@@ -8,8 +8,6 @@ package:
 source:
   url: https://github.com/bodo-ai/Bodo/archive/refs/tags/{{ version }}.tar.gz
   sha256: 7d170bf6cb45b57b4c0ee199b7b0dccf66a17cc8acbf92a28398a3f6d1c0abe4
-  patches:
-    - patches/0001-fix-cross-compile.patch
 
 build:
   skip: true  # [py<39]
