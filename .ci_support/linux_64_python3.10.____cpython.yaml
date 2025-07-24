@@ -1,5 +1,5 @@
 aws_sdk_cpp:
-- 1.11.510
+- 1.11.606
 c_compiler:
 - gcc
 c_compiler_version:
@@ -23,7 +23,7 @@ docker_image:
 libarrow:
 - '19.0'
 libboost_headers:
-- '1.86'
+- '1.88'
 numpy:
 - '2'
 pin_run_as_build:
