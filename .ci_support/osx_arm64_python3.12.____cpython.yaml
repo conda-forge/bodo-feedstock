@@ -3,7 +3,7 @@ MACOSX_DEPLOYMENT_TARGET:
 MACOSX_SDK_VERSION:
 - '11.0'
 aws_sdk_cpp:
-- 1.11.510
+- 1.11.606
 c_compiler:
 - clang
 c_compiler_version:
@@ -23,7 +23,7 @@ cxx_compiler_version:
 libarrow:
 - '19.0'
 libboost_headers:
-- '1.86'
+- '1.88'
 macos_machine:
 - arm64-apple-darwin20.0.0
 numpy:
