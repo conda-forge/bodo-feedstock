@@ -78,7 +78,7 @@ requirements:
     - numba >=0.60
     - mpich <4.2            # [not win]
     - requests
-    - openssl               # [win]
+    - openssl
     - zstd
     - cloudpickle >=3.0
     - psutil
