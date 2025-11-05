@@ -13,6 +13,6 @@ cxx_compiler:  # [win]
   - vs2022     # [win]
 
 libarrow:
-  - '21.0'
+  - '22.0'
 libarrow_all:
-  - '21.0'
+  - '22.0'
