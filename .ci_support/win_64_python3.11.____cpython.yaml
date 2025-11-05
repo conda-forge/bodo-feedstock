@@ -13,7 +13,7 @@ cxx_compiler:
 impi_devel:
 - '2021.14'
 libarrow:
-- '21.0'
+- '22.0'
 libboost_devel:
 - '1.88'
 numpy:
