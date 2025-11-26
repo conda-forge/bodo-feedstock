@@ -1,5 +1,5 @@
 {% set name = "bodo" %}
-{% set version = "2025.11.1" %}
+{% set version = "2025.11.2" %}
 
 package:
   name: {{ name }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/bodo-ai/Bodo/archive/refs/tags/{{ version }}.zip
-  sha256: ea29dd160bc6443e6575a65957d4d23aef69ae6e39a601f9a7912f524e32603f
+  sha256: ccc0d9884cba962ad320214c1853529b0388948fae99f7df53e8caa339e187cb
 
 build:
-  skip: true  # [py<39]
+  skip: true  # [py<310]
   number: 0
   rpaths:
     - lib
@@ -29,8 +29,7 @@ requirements:
     - cross-python_{{ target_platform }}    # [build_platform != target_platform]
     - python                                # [build_platform != target_platform]
     - cython >=3.0                          # [build_platform != target_platform]
-    # Restricting numpy in build for compatibility with numba requirements.
-    - numpy <2.3                            # [build_platform != target_platform]
+    - numpy                                 # [build_platform != target_platform]
     - libarrow                              # [build_platform != target_platform]
     - pyarrow-core                          # [build_platform != target_platform]
 
@@ -60,12 +59,11 @@ requirements:
     - hdf5 * *mpi_impi_*  # [win]
     - h5py
 
-    # Resricting mpich to prevent hangs on MacOS when using MPI Spawn.
+    # Restricting mpich to prevent hangs on MacOS when using MPI Spawn.
     - mpich <4.2            # [not win]
 
     # Python Deps
-    # Bodo requires numba <0.62 due to known issues with numba 0.62.0
-    - numba >=0.60,<0.62
+    - numba >=0.62,<0.63
     - numpy
     - impi-devel            # [win64]
 
@@ -76,7 +74,7 @@ requirements:
     - pyarrow-core
     - pyarrow
     - fsspec >=2021.09
-    - numba >=0.60,<0.62
+    - numba >=0.62,<0.63
     - mpich <4.2            # [not win]
     - requests
     - openssl
