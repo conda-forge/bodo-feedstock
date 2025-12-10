@@ -1,5 +1,5 @@
 {% set name = "bodo" %}
-{% set version = "2025.11.2" %}
+{% set version = "2025.12" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/bodo-ai/Bodo/archive/refs/tags/{{ version }}.zip
-  sha256: ccc0d9884cba962ad320214c1853529b0388948fae99f7df53e8caa339e187cb
+  sha256: 4b43c38ac519aee14cb825b7e4c3bcbd3694f5c4611f91b58db531acc38504a4
 
 build:
   skip: true  # [py<310]
