@@ -63,7 +63,7 @@ requirements:
     - mpich <4.2            # [not win]
 
     # Python Deps
-    - numba >=0.62,<0.63
+    - numba >=0.62,<0.64
     - numpy
     - impi-devel            # [win64]
 
@@ -74,7 +74,7 @@ requirements:
     - pyarrow-core
     - pyarrow
     - fsspec >=2021.09
-    - numba >=0.62,<0.63
+    - numba >=0.62,<0.64
     - mpich <4.2            # [not win]
     - requests
     - openssl
