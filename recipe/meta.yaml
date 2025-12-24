@@ -1,5 +1,5 @@
 {% set name = "bodo" %}
-{% set version = "2025.12" %}
+{% set version = "2025.12.1" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/bodo-ai/Bodo/archive/refs/tags/{{ version }}.zip
-  sha256: 4b43c38ac519aee14cb825b7e4c3bcbd3694f5c4611f91b58db531acc38504a4
+  sha256: 405a9e2fc6d74e0d479464a522dc82c19954406a781a1605981412197c7e5b4d
 
 build:
   skip: true  # [py<310]
@@ -29,7 +29,7 @@ requirements:
     - cross-python_{{ target_platform }}    # [build_platform != target_platform]
     - python                                # [build_platform != target_platform]
     - cython >=3.0                          # [build_platform != target_platform]
-    - numpy                                 # [build_platform != target_platform]
+    - numpy <2.4                            # [build_platform != target_platform]
     - libarrow                              # [build_platform != target_platform]
     - pyarrow-core                          # [build_platform != target_platform]
 
@@ -63,7 +63,7 @@ requirements:
     - mpich <4.2            # [not win]
 
     # Python Deps
-    - numba >=0.62,<0.63
+    - numba >=0.62,<0.64
     - numpy
     - impi-devel            # [win64]
 
@@ -74,7 +74,7 @@ requirements:
     - pyarrow-core
     - pyarrow
     - fsspec >=2021.09
-    - numba >=0.62,<0.63
+    - numba >=0.62,<0.64
     - mpich <4.2            # [not win]
     - requests
     - openssl
