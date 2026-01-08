@@ -88,10 +88,10 @@ requirements:
 
 test:
   source_files:
-    - examples/Misc/misc_pi.py # [build_platform == target_platform]
+    - examples/Misc/misc_pi.py  # [build_platform == target_platform]
   commands:
     # Emulation overheads result in OOM of above example
-    - python -c "import bodo; import bodo.pandas; " # [build_platform != target_platform]
+    - python -c "import bodo; import bodo.pandas;"  # [build_platform != target_platform]
 
 about:
   home: https://bodo.ai
