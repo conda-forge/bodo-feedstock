@@ -29,8 +29,8 @@ requirements:
     - python                                # [build_platform != target_platform]
     - cython >=3.0                          # [build_platform != target_platform]
     - numpy <2.4                            # [build_platform != target_platform]
-    #- libarrow                              # [build_platform != target_platform]
-    #- pyarrow-core                          # [build_platform != target_platform]
+    - libarrow                              # [build_platform != target_platform]
+    - pyarrow-core                          # [build_platform != target_platform]
 
   host:
     - python
