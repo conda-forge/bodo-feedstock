@@ -7,7 +7,7 @@ package:
 
 source:
     git_url: https://github.com/bodo-ai/Bodo.git
-    git_rev: isaac/fix_cross_compile # (Defaults to "HEAD")
+    git_rev: main # (Defaults to "HEAD")
 build:
   skip: true  # [py<310]
   number: 0
