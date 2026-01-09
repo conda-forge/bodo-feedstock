@@ -6,8 +6,9 @@ package:
   version: {{ version }}
 
 source:
-    git_url: https://github.com/bodo-ai/Bodo.git
-    git_rev: main # (Defaults to "HEAD")
+  url: https://github.com/bodo-ai/Bodo/archive/refs/tags/{{ version }}.zip
+  sha256: fd2ebdf4e029bad1bbf7f50a1bc78c2fe58bddb3166ec88d4bc101585b77369f
+
 build:
   skip: true  # [py<310]
   number: 0
