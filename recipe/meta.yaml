@@ -55,15 +55,17 @@ requirements:
     - libboost-devel    # [win]
     - aws-sdk-cpp
     - zstd
-    - hdf5 * mpi_mpich_*  # [not win]
-    - hdf5 * *mpi_impi_*  # [win]
+    - hdf5 * *mpi_mpich_*       # [not win and not osx]
+    - hdf5 * *mpi_openmpi_*     # [osx]
+    - hdf5 * *mpi_impi_*        # [win]
     - h5py
-    - mpich           # [not win]
+    - mpich               # [not win and not osx]
+    - openmpi             # [osx]
+    - impi-devel          # [win64]
 
     # Python Deps
     - numba >=0.62,<0.64
     - numpy
-    - impi-devel            # [win64]
 
   run:
     - python
@@ -73,12 +75,12 @@ requirements:
     - pyarrow
     - fsspec >=2021.09
     - numba >=0.62,<0.64
-    - mpich           # [not win]
     - requests
     - openssl
     - zstd
     - cloudpickle >=3.0
     - psutil
+    - pytz
 
   # run_constrained means these packages are not required deps
   # but will restrict them if they are present in the conda env.
