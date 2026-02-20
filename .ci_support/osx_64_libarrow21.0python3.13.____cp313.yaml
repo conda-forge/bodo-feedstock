@@ -1,7 +1,7 @@
 MACOSX_DEPLOYMENT_TARGET:
-- '10.15'
+- '11.0'
 MACOSX_SDK_VERSION:
-- '10.15'
+- '11.0'
 aws_sdk_cpp:
 - 1.11.606
 c_compiler:
@@ -11,7 +11,7 @@ c_compiler_version:
 c_stdlib:
 - macosx_deployment_target
 c_stdlib_version:
-- '10.15'
+- '11.0'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -21,7 +21,7 @@ cxx_compiler:
 cxx_compiler_version:
 - '19'
 libarrow:
-- '23.0'
+- '21.0'
 libboost_headers:
 - '1.88'
 macos_machine:
@@ -35,7 +35,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.11.* *_cpython
+- 3.13.* *_cp313
 target_platform:
 - osx-64
 zip_keys:
