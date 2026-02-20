@@ -1,16 +1,5 @@
-MACOSX_SDK_VERSION:           # [osx and x86]
-  - "10.15"                   # [osx and x86]
-MACOSX_DEPLOYMENT_TARGET:     # [osx and x86]
-  - "10.15"                   # [osx and x86]
-
-c_stdlib_version:
-  - "10.15"                   # [osx and x86]
+c_stdlib_version:             # [linux]
   - "2.28"                    # [linux]
-
-c_compiler:    # [win]
-  - vs2022     # [win]
-cxx_compiler:  # [win]
-  - vs2022     # [win]
 
 libarrow:
   - '23.0'
