@@ -7,5 +7,3 @@ set "BODO_WINDOWS_BUILD_TYPE=Release"
     --config-settings=build.verbose=true ^
     --config-settings=logging.level="DEBUG" .
 
-:: Clean up build artifacts
-rd /s /q build

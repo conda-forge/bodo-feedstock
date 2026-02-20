@@ -1,5 +1,5 @@
 {% set name = "bodo" %}
-{% set version = "2026.1" %}
+{% set version = "2026.2" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/bodo-ai/Bodo/archive/refs/tags/{{ version }}.zip
-  sha256: 299106890c87d09c3eccf30a6255409d993754732834440afc1895de890a5911
+  sha256: 0018806eeab556bde468507e5a62c76c97717f5f4be2f16bf5f659e07eb8ca09
 
 build:
   skip: true  # [py<310]
@@ -26,6 +26,7 @@ requirements:
     - {{ stdlib("c") }}
     - cmake <4.0,>=3.23
     - ninja
+    - mold                                  # [linux]
     - cross-python_{{ target_platform }}    # [build_platform != target_platform]
     - python                                # [build_platform != target_platform]
     - cython >=3.0                          # [build_platform != target_platform]
@@ -55,15 +56,17 @@ requirements:
     - libboost-devel    # [win]
     - aws-sdk-cpp
     - zstd
-    - hdf5 * mpi_mpich_*  # [not win]
-    - hdf5 * *mpi_impi_*  # [win]
+    - hdf5 * *mpi_mpich_*       # [not win and not osx]
+    - hdf5 * *mpi_openmpi_*     # [osx]
+    - hdf5 * *mpi_impi_*        # [win]
     - h5py
-    - mpich           # [not win]
+    - mpich               # [not win and not osx]
+    - openmpi             # [osx]
+    - impi-devel          # [win64]
 
     # Python Deps
     - numba >=0.62,<0.64
     - numpy
-    - impi-devel            # [win64]
 
   run:
     - python
@@ -73,12 +76,12 @@ requirements:
     - pyarrow
     - fsspec >=2021.09
     - numba >=0.62,<0.64
-    - mpich           # [not win]
     - requests
     - openssl
     - zstd
     - cloudpickle >=3.0
     - psutil
+    - pytz
 
   # run_constrained means these packages are not required deps
   # but will restrict them if they are present in the conda env.

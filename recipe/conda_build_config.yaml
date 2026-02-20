@@ -13,6 +13,10 @@ cxx_compiler:  # [win]
   - vs2022     # [win]
 
 libarrow:
-  - '22.0'
+  - '23.0'
 libarrow_all:
-  - '22.0'
+  - '23.0'
+
+# For compatibility with HDF5
+openmpi:
+  - '5'        # [osx]
