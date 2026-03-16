@@ -10,7 +10,7 @@ source:
   sha256: 0018806eeab556bde468507e5a62c76c97717f5f4be2f16bf5f659e07eb8ca09
 
 build:
-  skip: true  # [py<310]
+  skip: true  # [py<310 or libarrow == "20.0"]
   number: 1
   rpaths:
     - lib
