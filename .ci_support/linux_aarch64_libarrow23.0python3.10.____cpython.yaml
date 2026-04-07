@@ -23,7 +23,7 @@ libarrow:
 libboost_headers:
 - '1.88'
 mpich:
-- '4'
+- '5'
 numpy:
 - '2'
 pin_run_as_build:

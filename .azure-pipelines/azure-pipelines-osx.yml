@@ -128,7 +128,6 @@ jobs:
         CONFIG: osx_arm64_libarrow23.0python3.14.____cp314
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
-    maxParallel: 20
   timeoutInMinutes: 360
   variables: {}
 
