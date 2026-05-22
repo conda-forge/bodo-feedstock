@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/bodo-ai/Bodo/archive/refs/tags/{{ version }}.zip
-  sha256: 0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5
+  sha256: cd16c0462337d4b1efa6084468bba3094eee69d8a8bf1decf6e3b37a361dd441
 
 build:
   skip: true  # [py<310 or libarrow == "24.0"]
