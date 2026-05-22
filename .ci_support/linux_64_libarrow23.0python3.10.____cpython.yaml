@@ -24,8 +24,6 @@ libboost_headers:
 - '1.88'
 mpich:
 - '5'
-numpy:
-- '2'
 pin_run_as_build:
   python:
     min_pin: x.x

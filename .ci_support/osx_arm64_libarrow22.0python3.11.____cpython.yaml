@@ -26,8 +26,6 @@ libboost_headers:
 - '1.88'
 macos_machine:
 - arm64-apple-darwin20.0.0
-numpy:
-- '2'
 openmpi:
 - '5'
 pin_run_as_build:
