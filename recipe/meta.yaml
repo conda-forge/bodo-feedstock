@@ -1,5 +1,5 @@
 {% set name = "bodo" %}
-{% set version = "2026.4" %}
+{% set version = "2026.5" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/bodo-ai/Bodo/archive/refs/tags/{{ version }}.zip
-  sha256: 55911143217aa60dcbbac28848891862c1c6b9f4d6cc4b82cfb19120caab86c7
+  sha256: 0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5
 
 build:
   skip: true  # [py<310 or libarrow == "20.0"]
@@ -65,7 +65,7 @@ requirements:
     - impi-devel          # [win64]
 
     # Python Deps
-    - numba >=0.62,<0.64
+    - numba >=0.62,<0.66
     - numpy
 
   run:
@@ -75,7 +75,7 @@ requirements:
     - pyarrow-core
     - pyarrow
     - fsspec >=2021.09
-    - numba >=0.62,<0.64
+    - numba >=0.62,<0.66
     - requests
     - openssl
     - zstd
