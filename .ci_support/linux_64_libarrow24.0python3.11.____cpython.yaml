@@ -21,7 +21,7 @@ docker_image:
 libarrow:
 - '24.0'
 libboost_headers:
-- '1.88'
+- '1.90'
 mpich:
 - '5'
 numpy:
