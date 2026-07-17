@@ -13,7 +13,7 @@ cxx_compiler:
 impi_devel:
 - 2021.16.0
 libarrow:
-- '21.0'
+- '25.0'
 libboost_devel:
 - '1.88'
 numpy:
@@ -23,7 +23,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.12.* *_cpython
+- 3.10.* *_cpython
 target_platform:
 - win-64
 zstd:
