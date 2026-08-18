@@ -4,3 +4,9 @@ c_stdlib_version:             # [linux]
 # For compatibility with HDF5
 openmpi:
   - '5'        # [osx]
+
+c_compiler_version:
+  - 19  # [osx]
+
+cxx_compiler_version:
+  - 19  # [osx]
