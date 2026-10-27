@@ -1,5 +1,3 @@
-MACOSX_DEPLOYMENT_TARGET:
-- '11.0'
 MACOSX_SDK_VERSION:
 - '11.0'
 aws_sdk_cpp:
@@ -21,7 +19,7 @@ cxx_compiler:
 cxx_compiler_version:
 - '19'
 libarrow:
-- '22.0'
+- '26.0'
 libboost_headers:
 - '1.88'
 macos_machine:
