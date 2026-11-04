@@ -65,7 +65,7 @@ requirements:
     - impi-devel          # [win64]
 
     # Python Deps
-    - numba >=0.62,<0.66
+    - numba >=0.62,<0.69
     - numpy
 
   run:
@@ -75,7 +75,7 @@ requirements:
     - pyarrow-core
     - pyarrow
     - fsspec >=2021.09
-    - numba >=0.62,<0.66
+    - numba >=0.62,<0.69
     - requests
     - openssl
     - zstd
