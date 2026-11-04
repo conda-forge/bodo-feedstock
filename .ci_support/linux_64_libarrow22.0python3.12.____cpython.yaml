@@ -1,5 +1,7 @@
+DOCKER_PLATFORM:
+- linux/amd64
 aws_sdk_cpp:
-- 1.11.833
+- 1.11.905
 c_compiler:
 - gcc
 c_compiler_version:
