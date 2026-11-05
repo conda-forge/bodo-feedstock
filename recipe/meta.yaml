@@ -49,6 +49,7 @@ requirements:
 
     # Arrow Deps
     - libarrow
+    - libarrow-s3  # [libarrow == '26.0']
     - libarrow-dataset
     - libparquet
     - pyarrow-core
