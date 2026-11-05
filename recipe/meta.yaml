@@ -102,7 +102,7 @@ test:
     - export PMIX_HOSTNAME=localhost  # [osx]
     # Emulation overheads result in OOM of above example
     - python -c "import bodo; import bodo.pandas;"
-    - BODO_NUM_WORKERS=3 python examples/Misc/misc_pi.py  # [build_platform == target_platform]
+    - python examples/Misc/misc_pi.py  # [build_platform == target_platform]
 
 about:
   home: https://bodo.ai
