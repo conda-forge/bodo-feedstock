@@ -96,6 +96,9 @@ test:
   source_files:
     - examples/Misc/misc_pi.py  # [build_platform == target_platform]
   commands:
+    - export BODO_NUM_WORKERS=3       # [unix]
+    - set BODO_NUM_WORKERS=3          # [win]
+    - export PMIX_HOSTNAME=localhost  # [osx]
     # Emulation overheads result in OOM of above example
     - python -c "import bodo; import bodo.pandas;"
     - BODO_NUM_WORKERS=3 python examples/Misc/misc_pi.py  # [build_platform == target_platform]
