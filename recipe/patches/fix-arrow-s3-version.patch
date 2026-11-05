@@ -1,0 +1,49 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index c496966fbe..01524d98ee 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -375,26 +375,27 @@ execute_process(
+ )
+
+ set(ARROW_S3_LIBS "")
++if (PYARROW_VERSION VERSION_GREATER_EQUAL "26.0.0")
++  if(DEFINED ENV{PREFIX})
++      if(WIN32)
++          set(ARROW_HOST_LIB_DIR "$ENV{PREFIX}/Library/lib")
++      else()
++          set(ARROW_HOST_LIB_DIR "$ENV{PREFIX}/lib")
++      endif()
++  else()
++      set(ARROW_HOST_LIB_DIR "${CONDA_LIB_DIR}")
++  endif()
+
+-if(DEFINED ENV{PREFIX})
+-    if(WIN32)
+-        set(ARROW_HOST_LIB_DIR "$ENV{PREFIX}/Library/lib")
+-    else()
+-        set(ARROW_HOST_LIB_DIR "$ENV{PREFIX}/lib")
+-    endif()
+-else()
+-    set(ARROW_HOST_LIB_DIR "${CONDA_LIB_DIR}")
++  find_library(ARROW_S3_LIBRARY
++      NAMES arrow_s3
++      PATHS ${PYARROW_LIBRARY_DIRS} "${ARROW_HOST_LIB_DIR}"
++      NO_DEFAULT_PATH
++      REQUIRED
++  )
++  set(ARROW_S3_LIBS "${ARROW_S3_LIBRARY}")
++  message(STATUS "Found Arrow S3: ${ARROW_S3_LIBRARY}")
+ endif()
+
+-find_library(ARROW_S3_LIBRARY
+-    NAMES arrow_s3
+-    PATHS ${PYARROW_LIBRARY_DIRS} "${ARROW_HOST_LIB_DIR}"
+-    NO_DEFAULT_PATH
+-    REQUIRED
+-)
+-set(ARROW_S3_LIBS "${ARROW_S3_LIBRARY}")
+-message(STATUS "Found Arrow S3: ${ARROW_S3_LIBRARY}")
+-
+ # Numpy Include Directory is provided by scikit-build-core
+ # through `Python_NumPy_INCLUDE_DIR`
+ cmake_print_variables(Python_NumPy_INCLUDE_DIR)
