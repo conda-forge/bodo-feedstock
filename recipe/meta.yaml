@@ -12,8 +12,8 @@ source:
     - patches/fix-arrow-s3-version.patch
 
 build:
-  skip: true  # [py<310]
-  number: 1
+  skip: true  # [py>314 and (libarrow == '23.0' or libarrow == '24.0')]
+  number: 2
   rpaths:
     - lib
     - {{ PREFIX }}/lib
