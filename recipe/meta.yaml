@@ -13,7 +13,7 @@ source:
 
 build:
   skip: true  # [py>314 and (libarrow == '23.0' or libarrow == '24.0')]
-  number: 2
+  number: 3
   rpaths:
     - lib
     - {{ PREFIX }}/lib
